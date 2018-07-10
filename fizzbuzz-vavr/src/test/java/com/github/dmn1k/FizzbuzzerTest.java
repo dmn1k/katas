@@ -1,6 +1,7 @@
 package com.github.dmn1k;
 
 import io.vavr.collection.List;
+import io.vavr.collection.Stream;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -17,7 +18,7 @@ public class FizzbuzzerTest {
     public void returnsFizzForMultiplesOfThree(int input){
         Fizzbuzzer fizzbuzzer = new Fizzbuzzer();
 
-        List<String> result = fizzbuzzer.transform(input);
+        Stream<String> result = fizzbuzzer.transform();
 
         assertThat(result.get(input - 1)).isEqualTo("Fizz");
     }
@@ -32,7 +33,7 @@ public class FizzbuzzerTest {
     public void returnsBuzzForMultiplesOfFive(int input){
         Fizzbuzzer fizzbuzzer = new Fizzbuzzer();
 
-        List<String> result = fizzbuzzer.transform(input);
+        Stream<String> result = fizzbuzzer.transform();
 
         assertThat(result.get(input - 1)).isEqualTo("Buzz");
     }
@@ -46,7 +47,7 @@ public class FizzbuzzerTest {
     public void returnsFizzBuzzForMultiplesOfThreeAndFive(int input){
         Fizzbuzzer fizzbuzzer = new Fizzbuzzer();
 
-        List<String> result = fizzbuzzer.transform(input);
+        Stream<String> result = fizzbuzzer.transform();
 
         assertThat(result.get(input - 1)).isEqualTo("FizzBuzz");
     }
@@ -61,7 +62,7 @@ public class FizzbuzzerTest {
     public void returnsInputDigitIfNoMultipleOfThreeOrFive(int input){
         Fizzbuzzer fizzbuzzer = new Fizzbuzzer();
 
-        List<String> result = fizzbuzzer.transform(input);
+        Stream<String> result = fizzbuzzer.transform();
 
         assertThat(result.get(input - 1)).isEqualTo(Integer.toString(input));
     }
